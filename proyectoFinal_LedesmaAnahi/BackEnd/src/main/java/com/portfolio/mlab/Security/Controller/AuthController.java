@@ -65,18 +65,18 @@ public class AuthController {
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
  
         if (nuevoUsuario.getRoles().contains("admin"))
-        roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
+             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
         return new ResponseEntity(new Mensaje ("Usuario guardado"),HttpStatus.CREATED);
-
+        
     }
     
     @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
         if (bindingResult.hasErrors())
-        return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
         
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));

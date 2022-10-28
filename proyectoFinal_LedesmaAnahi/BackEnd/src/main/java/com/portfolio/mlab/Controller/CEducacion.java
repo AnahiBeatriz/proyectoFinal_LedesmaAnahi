@@ -58,7 +58,7 @@ public class CEducacion {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    
     @PostMapping("/create")
      public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion){
        if(StringUtils.isBlank(dtoeducacion.getNombreE())){

@@ -39,7 +39,7 @@ public class CHys {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/create")
+     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoHys dtohys) {
         if (StringUtils.isBlank(dtohys.getNombre())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -52,7 +52,6 @@ public class CHys {
         shys.save(hYs);
 
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
-
     }
 
     @PreAuthorize("hasRole('ADMIN')")

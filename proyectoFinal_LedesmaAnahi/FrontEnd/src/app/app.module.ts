@@ -16,7 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia/edit-experiencia.component';
@@ -25,6 +25,7 @@ import { EditeducacionComponent } from './components/educacion/editeducacion/edi
 import { EditSkillComponent } from './components/hys/edit-skill/edit-skill.component';
 import { NewSkillComponent } from './components/hys/new-skill/new-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de/edit-acerca-de.component';
+
 
 @NgModule({
   declarations: [
@@ -49,12 +50,14 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de/edi
     EditAcercaDeComponent
   ],
   imports: [
-    FormsModule,
+    
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [
      interceptorProvider

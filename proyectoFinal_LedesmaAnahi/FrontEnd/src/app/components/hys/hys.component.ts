@@ -9,7 +9,8 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./hys.component.css']
 })
 export class HysComponent implements OnInit {
-skill: Skill[]=[];
+  skill: Skill[] = [];
+
 
   constructor(private skillS: SkillService, private tokenService: TokenService) { }
   isLogged = false;
@@ -21,24 +22,25 @@ skill: Skill[]=[];
     } else {
       this.isLogged = false;
     }
-     
   }
 
   cargarSkills(): void{
     this.skillS.lista().subscribe(
-      data=>{
-      this.skill = data;
+      data => {
+        this.skill = data;
       }
     )
   }
 
-  delete(id:number){
+  delete(id: number){
     if(id != undefined){
-      this.skillS.delete(id).subscribe({ next:(data) =>{
-         this.cargarSkills();
-       }, error: (err)=>{
-         alert("No se pudo borrar la skill");
-       }});
+      this.skillS.delete(id).subscribe({ next:(data) => {
+          this.cargarSkills();
+      }, error:(err) => {
+          alert("No se pudo borrar la skill");
+      }});
     }
   }
 }
+    
+      
